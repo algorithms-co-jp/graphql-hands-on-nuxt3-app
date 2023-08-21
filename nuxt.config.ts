@@ -9,4 +9,5 @@ export default defineNuxtConfig({
   routeRules: {
     "/**": { ssr: false },
   },
+  modules: ["@nuxtjs/tailwindcss"],
 });

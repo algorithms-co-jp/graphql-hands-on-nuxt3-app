@@ -15,8 +15,12 @@
   },
   "dependencies": {
     "@nuxtjs/dotenv": "^1.4.1",
+    "@nuxtjs/tailwindcss": "^6.8.0",
     "@urql/core": "^4.0.10",
     "@urql/vue": "^1.1.2",
-    "graphql": "^16.6.0"
+    "date-fns": "^2.30.0",
+    "date-fns-tz": "^2.0.0",
+    "graphql": "^16.6.0",
+    "vue": "^3.3.4"
   }
 }
