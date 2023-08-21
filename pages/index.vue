@@ -80,7 +80,7 @@ const ADD_TASK = gql`
 
 // コメントを追加するためのミューテーション
 const ADD_COMMENT = gql`
-  mutation insertComment($option: String = "", $task_id: Int) {
+  mutation insertComment($option: String, $task_id: Int) {
     insert_comments_one(object: {option: $option, task_id: $task_id}) {
       id
     }
@@ -110,14 +110,15 @@ const addTask = async () => {
   await executeAddTask({ title: title.value, body: body.value });
   title.value = "";
   body.value = "";
+  result.executeQuery({ requestPolicy: 'network-only'});
 };
 
 // タスクに新しいコメントを追加する関数
 const addComment = async (task) => {
   if (!task.newComment) return;
   await executeAddComment({ option: task.newComment, task_id: task.id });
-  task.comments.push({ option: task.newComment, created_at: new Date().toISOString() }); // This is a simple way to immediately display the new comment
   task.newComment = "";
+  result.executeQuery({ requestPolicy: 'network-only'});
 };
 
 // タスクの完了/未完了を切り替える関数
@@ -125,6 +126,7 @@ const toggleCompleted = async (task) => {
   const updatedStatus = !task.completed;
   await executeUpdateTask({ id: task.id, completed: updatedStatus });
   task.completed = updatedStatus;
+  result.executeQuery({ requestPolicy: 'network-only'});
 };
 
 // 日本時間に変換する関数
