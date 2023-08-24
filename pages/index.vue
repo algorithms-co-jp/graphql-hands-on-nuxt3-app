@@ -53,7 +53,7 @@ import { utcToZonedTime } from 'date-fns-tz';
 // タスクのリストを取得するクエリ
 const result = await useQuery({
   query: gql`
-    {
+    query getTasks {
       tasks(limit: 100, order_by: {id: asc}) {
         id
         title
@@ -101,9 +101,9 @@ const UPDATE_TASK = gql`
 `;
 
 // Todo: タスクを削除するためのミューテーション
-const DELETE_TASK = gql`
-
-`;
+// const DELETE_TASK = gql`
+//
+// `;
 
 // ミューテーションを実行するための関数
 const { executeMutation: executeAddTask } = useMutation(ADD_TASK);
@@ -140,7 +140,7 @@ const toggleCompleted = async (task) => {
 
 // Todo: タスクを削除する関数
 const deleteTask = async (taskId) => {
-
+  
 };
 
 // 日本時間に変換する関数
