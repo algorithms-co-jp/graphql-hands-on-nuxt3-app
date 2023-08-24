@@ -17,6 +17,10 @@
       <button @click="toggleCompleted(task)" class="mt-2 p-1 bg-yellow-500 text-white rounded hover:bg-yellow-600">
         {{ task.completed ? '未完了にする' : '完了済みにする' }}
       </button>
+      <!-- タスクを削除するボタン -->
+      <button @click="deleteTask(task.id)" class="mt-2 p-1 bg-red-500 text-white rounded hover:bg-red-600 mx-3">
+        タスクを削除
+      </button>
       <!-- タスクに関するコメントエリア -->
       <div class="mt-4">
         <h4 class="text-lg font-medium mb-2">コメント:</h4>
@@ -96,6 +100,11 @@ const UPDATE_TASK = gql`
   }
 `;
 
+// Todo: タスクを削除するためのミューテーション
+const DELETE_TASK = gql`
+
+`;
+
 // ミューテーションを実行するための関数
 const { executeMutation: executeAddTask } = useMutation(ADD_TASK);
 const { executeMutation: executeAddComment } = useMutation(ADD_COMMENT);
@@ -127,6 +136,11 @@ const toggleCompleted = async (task) => {
   await executeUpdateTask({ id: task.id, completed: updatedStatus });
   task.completed = updatedStatus;
   result.executeQuery({ requestPolicy: 'network-only'});
+};
+
+// Todo: タスクを削除する関数
+const deleteTask = async (taskId) => {
+
 };
 
 // 日本時間に変換する関数
