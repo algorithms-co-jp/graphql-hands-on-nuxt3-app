@@ -10,8 +10,9 @@
 
 ## セットアップ
 1. Hasuraのセットアップは、以下のリポジトリを参照してください: [graphql-hands-on-hasura](https://github.com/algorithms-co-jp/graphql-hands-on-hasura)
-2. このアプリの依存関係をインストール: `npm install`
-3. 開発サーバーの起動: `npm run dev`
+2. `.env`ファイルを作成し、HasuraのGraphQLエンドポイントを設定: `cp .env.example .env`
+3. このアプリの依存関係をインストール: `npm install`
+4. 開発サーバーの起動: `npm run dev`
 
 アプリケーションは http://localhost:3000 でアクセス可能です。
 
