@@ -1,4 +1,4 @@
 schema:
-  - http://localhost:8080/v1/graphql:
+  - ${HASURA_GRAPHQL_ENDPOINT}:
       headers:
         x-hasura-admin-secret: ${HASURA_GRAPHQL_ADMIN_SECRET}
