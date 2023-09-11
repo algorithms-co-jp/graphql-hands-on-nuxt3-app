@@ -3,7 +3,7 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       apiKey: process.env.HASURA_GRAPHQL_ADMIN_SECRET,
-      endPoint: "http://localhost:8080/v1/graphql",
+      endPoint: process.env.HASURA_GRAPHQL_ENDPOINT,
     },
   },
   routeRules: {
